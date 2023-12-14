@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# This Bash script establishes an SSH connection to a server.
+# It uses the private key located at ~/.ssh/school and connects to the server as the user 'ubuntu'.
+# Replace the IP address '35.185.33.227' with the actual server's IP address.
+
+# Define variables for clarity
+private_key="~/.ssh/school"
+user="ubuntu"
+server_ip="35.185.33.227"
+
+# Establish the SSH connection using the defined variables
+ssh -i $private_key $user@$server_ip
