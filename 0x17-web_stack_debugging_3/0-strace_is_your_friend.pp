@@ -1,6 +1,6 @@
- bad `phpp` extensions to `php` in the WordPress file `wp-settings.php`.
-
-exec { 'fix-wordpress':
-  command => 'sed -i s/phpp/php/g /var/www/html/wp-settings.php',
-  path    => '/usr/local/bin/:/bin/'
+# Fix error 500 server error of a LAMP stack
+exec { 'sed_replace':
+  command => "sed -i 's/phpp/php/g' /var/www/html/wp-settings.php",
+  path    => '/bin:/usr/bin',
+  onlyif  => 'grep -q phpp /var/www/html/wp-settings.php',
 }
